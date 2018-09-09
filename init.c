@@ -1,3 +1,4 @@
+
 #define     WTCON           (*(volatile unsigned long *)0x53000000)
 
 /* SDRAM regisers */
@@ -57,7 +58,7 @@ __asm__(
     );
 
     /* 判断是S3C2410还是S3C2440 */
-    MPLLCON = S3C2440_MPLL_50MHZ;//376850;  /* 现在，FCLK=200MHz,HCLK=100MHz,PCLK=50MHz */
+    MPLLCON = S3C2440_MPLL_200MHZ;//376850;  /* 现在，FCLK=200MHz,HCLK=100MHz,PCLK=50MHz */
     // if ((GSTATUS1 == 0x32410000) || (GSTATUS1 == 0x32410002))
     // {
         // MPLLCON = S3C2410_MPLL_200MHZ;  /* 现在，FCLK=200MHz,HCLK=100MHz,PCLK=50MHz */
@@ -99,6 +100,7 @@ void memsetup(void)
     p[10] = 0x000000B1;     //BANKSIZE
     p[11] = 0x00000030;     //MRSRB6
     p[12] = 0x00000030;     //MRSRB7
+    
 }
 
 void clean_bss(void)

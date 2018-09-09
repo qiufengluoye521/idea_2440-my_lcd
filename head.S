@@ -26,15 +26,12 @@ _start:
     ldr     sp,=0x34000000          @ 设置系统模式指针
     
     ldr     lr,=ret_initirq         @ 设置返回地址
-    BL      led_flicker
     ldr     pc,=init_irq            @ 调用中断初始化函数
     
 ret_initirq:
-    BL      led_flicker
     msr     cpsr_c, #0x5f           @ 设置I-bit=0，开IRQ中断
     
     ldr     lr,=halt_loop           @ 设置返回地址
-    # BL      led_flicker
     ldr     pc,=main                @ 跳转至main
     
 halt_loop:
