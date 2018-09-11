@@ -1,4 +1,4 @@
-//#define LARGER_NAND_PAGE
+#define LARGER_NAND_PAGE
 
 #define GSTATUS1        (*(volatile unsigned int *)0x560000B0)
 #define BUSY            1

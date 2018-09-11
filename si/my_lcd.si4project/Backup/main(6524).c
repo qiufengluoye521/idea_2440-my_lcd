@@ -27,7 +27,6 @@ void TFT_LCD_Test(void);
 #define SCR_YSIZE  LCD_HEIGHT
 
 volatile static unsigned short LCD_BUFFER[SCR_YSIZE][SCR_XSIZE];  //定义320行，240列的数组，用于存放显示数据
-extern const unsigned char sunflower_320x240[];
 /*************************************************
 Function name: delay
 Parameter    : times
@@ -75,33 +74,6 @@ int main()
 }
 
 
-/*************************************************
-Function name: Pait_Bmp
-Parameter    : void
-Description	 : 在LCD屏幕上指定坐标点画一个指定大小的图片
-Return		 : void
-Argument     : int x0,int y0,int h,int l,const unsigned char *bmp
-Autor & date : Daniel
-**************************************************/
-static void Pait_Bmp(int x0,int y0,int h,int l,const unsigned char *bmp)
-{
-	int x,y;
-	U32 c;
-	int p = 0;
-
-    for( y = 0 ; y < l ; y++ )
-    {
-    	for( x = 0 ; x < h ; x++ )
-    	{
-    		c = bmp[p+1] | (bmp[p]<<8) ;
-
-			if ( ( (x0+x) < SCR_XSIZE) && ( (y0+y) < SCR_YSIZE) )
-				LCD_BUFFER[y0+y][x0+x] = c ;
-
-    		p = p + 2 ;
-    	}
-    }
-}
 
 
 /*************************************************
@@ -246,35 +218,34 @@ void TFT_LCD_Test(void)
 
 	/*在屏幕上显示三基色*/
 
-
 		Lcd_ClearScr( (0x00<<11) | (0x00<<5) | (0x00)  )  ;		//clear screen black
-		lcd_delay(10000);
+		// lcd_delay(10000);
         putc('c');
 
-		Lcd_ClearScr((0x1f<<11) | (0x00<<5) | (0x00));			//red
-		lcd_delay(10000);
+		// Lcd_ClearScr((0x1f<<11) | (0x00<<5) | (0x00));			//red
+		// lcd_delay(10000);
         putc('r');
-		Lcd_ClearScr((0x00<<11) | (0x3f<<5) | (0x00));			//green
-		lcd_delay(10000);
+		// Lcd_ClearScr((0x00<<11) | (0x3f<<5) | (0x00));			//green
+		// lcd_delay(10000);
         putc('g');
-		Lcd_ClearScr((0x00<<11) | (0x00<<5) | (0x1f));			//blue
-		lcd_delay(10000);
+		// Lcd_ClearScr((0x00<<11) | (0x00<<5) | (0x1f));			//blue
+		// lcd_delay(10000);
         putc('b');
 
-		Lcd_ClearScr( (0x1f<<11) | (0x3f<<5) | (0x1f)  )  ;		//clear screen white
-		lcd_delay(10000);
+		// Lcd_ClearScr( (0x1f<<11) | (0x3f<<5) | (0x1f)  )  ;		//clear screen white
+		// lcd_delay(10000);
 
 
 
 
-	Lcd_ClearScr(0xffff);		//fill all screen with some color
+	//Lcd_ClearScr(0xffff);		//fill all screen with some color
 
 	/*显示一副图片在屏幕上*/
 
-	Pait_Bmp(0, 0, 320, 240, sunflower_320x240);
-	lcd_delay(10000);
-	lcd_delay(10000);
-	lcd_delay(10000);
+//	Pait_Bmp(0, 0, 320, 240, sunflower_320x240);
+//	delay(10000);
+//	delay(10000);
+//	delay(10000);
 
    	//Uart_Printf( "LCD clear screen is finished!\n" );
 

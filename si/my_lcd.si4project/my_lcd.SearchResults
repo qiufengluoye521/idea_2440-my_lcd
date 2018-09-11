@@ -1,0 +1,4 @@
+---- LCD_ADDR Matches (4 in 1 files) ----
+main.c line 169 : #define LCD_ADDR ((U32)LCD_BUFFER)
+LCD_Init in main.c :     LCDSADDR1 = ((LCD_ADDR >> 22) << 21) | ((M5D(LCD_ADDR >> 1)) <<  0);
+LCD_Init in main.c :     LCDSADDR2 = M5D((LCD_ADDR + LCD_WIDTH * LCD_HEIGHT * 2) >> 1);

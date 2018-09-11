@@ -10,7 +10,7 @@ void Dummy_isr(void)
     while(1);
 }
 
-void  wait(volatile unsigned long dly)
+void  wait_irq(volatile unsigned long dly)
 {
 	for(; dly > 0; dly--);
 }

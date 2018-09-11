@@ -246,6 +246,7 @@ void TFT_LCD_Test(void)
 
 	/*在屏幕上显示三基色*/
 
+        Lcd_ClearScr((0x1f<<11) | (0x00<<5) | (0x00));
 
 		Lcd_ClearScr( (0x00<<11) | (0x00<<5) | (0x00)  )  ;		//clear screen black
 		lcd_delay(10000);
@@ -272,9 +273,9 @@ void TFT_LCD_Test(void)
 	/*显示一副图片在屏幕上*/
 
 	Pait_Bmp(0, 0, 320, 240, sunflower_320x240);
-	lcd_delay(10000);
-	lcd_delay(10000);
-	lcd_delay(10000);
+	delay(10000);
+	delay(10000);
+	delay(10000);
 
    	//Uart_Printf( "LCD clear screen is finished!\n" );
 

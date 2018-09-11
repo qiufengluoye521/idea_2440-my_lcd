@@ -124,6 +124,10 @@
 #define LCDINTMSK   (*(volatile unsigned long *)0x4d00005c) //LCD Interrupt mask
 #define LPCSEL      (*(volatile unsigned long *)0x4d000060) //LPC3600 Control
 #define PALETTE     0x4d000400                              //Palette start address
+//add by kangear start
+#define TCONSEL     (*(volatile unsigned *)0x4d000060)	//LPC3600 Control
+
+//add by kangear end
 
 #define ISR_EINT0_OFT     0
 #define ISR_EINT1_OFT     1
